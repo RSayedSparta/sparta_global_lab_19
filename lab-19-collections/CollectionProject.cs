@@ -73,23 +73,24 @@ namespace lab_19_collections
 
         public int List()
         {
-
+            int sum = 0;
             List<int> List01 = new List<int>();
-            for (int i = 7; i < myCubicArray.GetLength(2); i++)
+            for (int i = 0; i < myCubicArray.GetLength(2); i++)
             {
-                for (int y = 3; y < myCubicArray.GetLength(1); y++)
+                for (int y = 0; y < myCubicArray.GetLength(1); y++)
                 {
-                    for (int x = 2; x < myCubicArray.GetLength(0); x++)
+                    for (int x = 0; x < myCubicArray.GetLength(0); x++)
                     {
-                        int sum = x * y * i;
                         List01.Add(sum);
+                        sum = sum + (x * y * i);
+                        
                         
                     }
                 }
             }
 
 
-            return List01;
+            return sum;
         }
 
 
@@ -112,7 +113,6 @@ namespace lab_19_collections
 
         public Dictionary<string, string> DictionaryTest() {
 
-            List<int> List01 = new List<int>();
             dictionary.Add("England1", "London1");
             dictionary.Add("England2", "London2");
             dictionary.Add("England3", "London3");
@@ -123,7 +123,6 @@ namespace lab_19_collections
             dictionary.Add("England8", "London8");
             dictionary.Add("England9", "London9");
             dictionary.Add("England10", "London10");
-
 
             return dictionary;
         }
@@ -152,21 +151,21 @@ namespace lab_19_collections
 
         public int QueueTest()
         {
-            int total = 0;
+            int sum = 0;
             for (int i = 0; i < 100; i++)
             {
                 int cube = (i * i * i);
                 queue.Enqueue(cube);
             }
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 11; i++)
             {
-                total = queue.Dequeue();
+                sum += queue.Dequeue();
             }
             
             
 
-            return total;
+            return sum;
         }
 
 
@@ -192,19 +191,19 @@ namespace lab_19_collections
 
         public int StackTest()
         {
-            int total = 0;
-            for (int i = 0; i < 100; i++)
+            int sum = 0;
+            for (int i = 0; i < 101; i++)
             {
                 int cube = (i * i * i);
                 stack.Push(cube);
             }
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 91; i < 101; i++)
             {
-                total = stack.Pop();
+                sum += stack.Pop();
             }
 
-            return total;
+            return sum;
         }
 
 
